@@ -15,7 +15,8 @@
     "express": "*",
     "kerberos": "*",
     "parse": "*",
-    "parse-server": "*"
+    "parse-server": "*",
+    "parse-server-sendgrid-adapter": "^1.0.0"
   },
   "scripts": {
     "start": "node index.js"
