@@ -15,7 +15,7 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-const parseServerUrl = 'http://localhost:1337/parse';
+const parseServerUrl = 'https://ndrk-backend.herokuapp.com/parse';
 const appID = 'APPLICATION_ID';
 
 var api = new ParseServer({
@@ -27,6 +27,8 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Message"] // List of classes to support for query subscriptions
   },
+  appName: 'N.D.R.K IT',
+  publicServerURL: 'https://ndrk-backend.herokuapp.com/parse',
   emailAdapter: SimpleSendGridAdapter({
     apiKey: process.env.EMAIL_SENDER_API,
     fromAddress: "principal@ndrkit.ac.in",
@@ -55,7 +57,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
-  res.status(200).send('I dream of being a website. Updated on Mon 7:02!');
+  res.status(200).send('I dream of being a website. Updated on Mon 7:15!');
 });
 
 // There will be a test page available on the /test path of your server url
