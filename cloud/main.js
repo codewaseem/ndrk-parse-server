@@ -6,7 +6,7 @@ Parse.Cloud.define("deleteUserByEmail", async function (request, response) {
 
     try {
         let user = await query.first();
-        let deletedUser = await user.destroy();
+        let deletedUser = await user.destroy({useMasterKey:true});
 
         return deletedUser;
     } catch(e) {
