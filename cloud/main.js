@@ -8,13 +8,8 @@ Parse.Cloud.define("deleteUserByEmail", async function (request, response) {
         let user = await query.first();
         let deletedUser = await user.destroy();
 
-        if(deletedUser) {
-            response.success(deletedUser);
-        }
-
-        else throw new Error("Failed to delete the User");
-
+        return deletedUser;
     } catch(e) {
-        response.error(e);
+       return e;
     }
 });
